@@ -13,6 +13,8 @@
 
     <!-- 使用multicast广播注册中心暴露发现服务地址 -->
     <dubbo:registry file="./zheng-upms-server-dubbo.cache" address="zookeeper://127.0.0.1:2181"/>
+    <!--<dubbo:registry protocol="zookeeper"  address="192.168.100.23:2181,192.168.100.23:2182,192.168.100.24:2183,192.168.100.24:2184,192.168.100.24:2185"/>-->
+
 
     <!-- 订阅服务 -->
     <dubbo:consumer check="false"/>
