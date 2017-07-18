@@ -7,7 +7,10 @@ import com.zheng.cms.common.constant.CmsResult;
 import com.zheng.cms.common.constant.CmsResultConstant;
 import com.zheng.cms.dao.model.CmsCategory;
 import com.zheng.cms.dao.model.CmsCategoryExample;
+import com.zheng.cms.dao.model.CmsSystem;
+import com.zheng.cms.dao.model.CmsSystemExample;
 import com.zheng.cms.rpc.api.CmsCategoryService;
+import com.zheng.cms.rpc.api.CmsSystemService;
 import com.zheng.common.base.BaseController;
 import com.zheng.common.validator.LengthValidator;
 import io.swagger.annotations.Api;
@@ -38,6 +41,8 @@ public class CmsCategoryController extends BaseController {
 	
 	@Autowired
 	private CmsCategoryService cmsCategoryService;
+	@Autowired
+	private CmsSystemService cmsSystemService;
 
 	@ApiOperation(value = "类目首页")
 	@RequiresPermissions("cms:category:read")
@@ -106,8 +111,14 @@ public class CmsCategoryController extends BaseController {
 	@RequiresPermissions("cms:category:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String update(@PathVariable("id") int id, ModelMap modelMap) {
+		CmsSystemExample cmsSystemExample = new CmsSystemExample();
+		List<CmsSystem> cmsSystems = cmsSystemService.selectByExample(cmsSystemExample);
+
+
 		CmsCategory category = cmsCategoryService.selectByPrimaryKey(id);
+
 		modelMap.put("category", category);
+		modelMap.put("cmsSystems", cmsSystems);
 		return "/manage/category/update.jsp";
 	}
 
