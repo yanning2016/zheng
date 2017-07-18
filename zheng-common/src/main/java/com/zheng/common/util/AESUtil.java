@@ -131,7 +131,7 @@ public class AESUtil {
         //mysql 密码dpw123
         //redis 密码redis
         String[] keys = {
-                "", "dpw123"
+                "", "redis"
         };
         System.out.println("key | AESEncode | AESDecode");
         for (String key : keys) {

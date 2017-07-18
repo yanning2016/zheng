@@ -16,9 +16,19 @@
 			<label for="level">层深</label>
 			<input id="level" type="text" class="form-control" name="level" maxlength="5" value="${category.level}">
 		</div>
+		<%--<div class="form-group">--%>
+			<%--<label for="systemId">所属系统</label>--%>
+			<%--<input id="systemId" type="text" class="form-control" name="systemId" value="${category.systemId}">--%>
+		<%--</div>--%>
 		<div class="form-group">
-			<label for="systemId">所属系统</label>
-			<input id="systemId" type="text" class="form-control" name="systemId" value="${category.systemId}">
+			<div class="fg-line">
+				<select id="systemId" name="systemId" style="width: 100%">
+					<option value="0">所属系统</option>
+					<c:forEach var="cmsSystem" items="${cmsSystems}">
+						<option value="${cmsSystem.systemId}">${cmsSystem.name}</option>
+					</c:forEach>
+				</select>
+			</div>
 		</div>
 		<div class="form-group">
 			<label for="name">名称</label>
