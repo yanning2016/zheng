@@ -5,7 +5,7 @@
 <body>
 // 空一行
 <footer>
-二、Commit message 的格式
+二、Commit message 的格 式
 
 每次提交，Commit message 都包括三个部分：Header，Body 和 Footer。
 
